@@ -14,4 +14,30 @@ class Harvester {
 
         return $harvest_fruits;
     }
+
+    public function calculateTotalWeight($fruits) : int {
+        $fruits_weight = [];
+
+        foreach ($fruits as $fruit) {
+            if (is_object($fruit) && method_exists($fruit, 'getWeight')) {
+                $fruits_weight[] = $fruit->getWeight();
+            }
+        }
+
+        return array_sum($fruits_weight);
+    }
+
+    public function calculateHeaviestFruit($fruits): Fruit {
+        $max_weight = 0;
+        $heaviest_fruit = [];
+
+        foreach ($fruits as $fruit) {
+            if ($fruit->getWeight() > $max_weight) {
+                $max_weight = $fruit->getWeight();
+                $heaviest_fruit = $fruit;
+            }
+        }
+
+        return $heaviest_fruit;
+    }
 }

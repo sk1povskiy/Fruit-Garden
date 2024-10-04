@@ -1,7 +1,7 @@
 <?php
 // Класс для работы с садом (деревьями)
 class Garden {
-    private array $trees;
+    private array $trees = [];
 
     public function add(Tree $tree) : void {
         $this->trees[] = $tree;

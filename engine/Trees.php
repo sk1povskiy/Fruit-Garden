@@ -10,7 +10,7 @@ abstract class Tree {
     private function generateTreeID() : string {
         // Не самая лучшая реализация ID дерева, но в качестве примера я считаю сгодится
         $hash = hash('sha256', rand(0, 999999));
-        return $hash;
+        return get_class($this) . '@' . $hash;
     }
 
     public function getID() : string {
